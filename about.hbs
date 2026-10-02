@@ -1,0 +1,54 @@
+# Third-Party Notices
+
+AudioFrame itself is licensed under the MIT License (see `LICENSE`).
+
+The distributed Windows release binary (`x86_64-pc-windows-msvc`) statically
+links the third-party crates listed below. Each is redistributed under the
+license(s) shown next to it. Build-only and dev-only dependencies are not
+redistributed and are excluded.
+
+This file is generated mechanically:
+
+```
+powershell -ExecutionPolicy Bypass -File tools/gen-third-party-notices.ps1
+```
+
+Do not edit it by hand. The dependency set is pinned by `Cargo.lock`; the
+accepted-license allow-list is in `about.toml`. `cargo about` fails if any
+dependency introduces a license outside that list. The script additionally
+splices in `fonts/UFL.txt` (Ubuntu Font Licence 1.0) from the
+`epaint_default_fonts` source package, which `cargo about` cannot resolve on
+its own.
+
+Every license below is an OSI-approved permissive license. No copyleft license
+(GPL, LGPL, MPL-2.0, EUPL, CDDL, SSPL, ...) is present in the redistributed
+binary.
+
+## Dependencies
+
+| Crate | Version | License (SPDX expression) |
+|---|---|---|
+{{#each crates}}| {{package.name}} | {{package.version}} | {{#if package.license}}{{package.license}}{{else}}(see license file){{/if}} |
+{{/each}}
+
+## Full license texts
+
+Each section reproduces one license file exactly as shipped in the source
+package of the crate(s) that use it. Where several crates carry the same license
+with different copyright lines, each variant is reproduced separately, as
+required by that license's redistribution clause.
+
+{{#each licenses}}
+### {{name}} (SPDX: `{{id}}`)
+
+Applies to:
+
+{{#each used_by}}
+- {{crate.name}} {{crate.version}}
+{{/each}}
+
+```text
+{{text}}
+```
+
+{{/each}}

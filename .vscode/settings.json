@@ -1,0 +1,11 @@
+{
+  "code-runner.executorMap": {
+    "rust": "$env:Path = \"$env:USERPROFILE\\.cargo\\bin;$env:Path\"; cd \"$workspaceRoot\"; cargo run"
+  },
+  "code-runner.runInTerminal": true,
+  "code-runner.saveFileBeforeRun": true,
+  "code-runner.clearPreviousOutput": true,
+  "code-runner.fileDirectoryAsCwd": false,
+  "rust-analyzer.check.command": "clippy",
+  "rust-analyzer.cargo.targetDir": true
+}
